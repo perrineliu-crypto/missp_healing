@@ -18,12 +18,12 @@ jobs:
       - name: 設定 Node.js 環境
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
       - name: 安裝套件與打包網頁
         env:
           CI: false
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
       - name: 上傳打包好的網頁
         uses: actions/upload-pages-artifact@v3
