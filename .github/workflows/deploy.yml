@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: 20
       - name: 安裝套件與打包網頁
+        env:
+          CI: false
         run: |
           npm install
           npm run build
