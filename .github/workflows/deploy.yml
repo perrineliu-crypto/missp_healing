@@ -19,16 +19,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: 安裝套件與打包網頁
-        env:
-          CI: false
-        run: |
-          npm install --legacy-peer-deps
-          npm run build
-      - name: 上傳打包好的網頁
+      - name: 安裝套件
+        run: npm install
+      - name: 打包網頁 (Vite)
+        run: npm run build
+      - name: 上傳打包好的網頁 (Vite 預設輸出在 dist)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          path: ./dist
 
   deploy:
     environment:
